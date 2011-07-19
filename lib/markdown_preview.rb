@@ -10,7 +10,7 @@ module MarkdownPreview
     raise "ActionController is not available yet." unless defined?(ActionController)
     ActionController::Base.send(:include, MarkdownPreview::Base)
     ActionController::Base.send(:helper, MarkdownPreview::Helpers)
-    MarkdownPreview.install_or_update_markdown_preview
+    #MarkdownPreview.install_or_update_markdown_preview
     @intialized = true
   end
 
