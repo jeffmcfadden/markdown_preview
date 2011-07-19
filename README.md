@@ -6,7 +6,7 @@ This gem gives you instant markdown preview for any textarea you want, anywhere 
 
 1. Add to your Gemfile:
 
-    `gem 'markdown_preview', :git => 'git://github.com/jeffmcfadden/markdown_preview', :tag => '0.1.1'`
+    `gem 'markdown_preview'`
 
 2. Run the Rake task:
 
