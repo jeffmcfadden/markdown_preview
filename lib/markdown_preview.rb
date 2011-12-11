@@ -1,7 +1,6 @@
 # Require all the necessary files to run MarkdownPreview
 require 'markdown_preview/base'
 require 'markdown_preview/exceptions'
-require 'markdown_preview/configuration'
 require 'markdown_preview/helpers'
 
 module MarkdownPreview
