@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'markdown_preview'
-  s.version     = '0.1.5'
+  s.version     = '0.1.6'
   s.authors = ["Jeff McFadden"]
   s.email = "jeff.mcfadden@gmail.com"
   s.homepage = "http://github.com/jeffmcfadden/markdown_preview"
