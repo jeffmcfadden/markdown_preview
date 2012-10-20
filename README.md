@@ -8,26 +8,12 @@ This gem gives you instant markdown preview for any textarea you want, anywhere 
 
     `gem 'markdown_preview'`
 
-2. Run the Rake task:
+2. Include the assets where you want them
 
-    `rake markdown_preview:install`
+    `//= require markdown_preview/base`
 
-3. Add helper to any controllers you want to use markdown_preview with:
 
-    ```ruby
-      class MyController < ApplicationController
-      
-       uses_markdown_preview
-    ```
-
-4. Add the helper tag to your base layout:
-
-    ```html
-    <!-- Note, jQuery include *required* above this line. -->
-    <%= include_markdown_preview_if_needed %>
-    ```
-
-5. (Optional) If you want to override the preprocessor then add the following to `config/initializers/markdown_preview.rb`
+3. (Optional) If you want to override the preprocessor then add the following to `config/initializers/markdown_preview.rb`
 
     ```ruby
     module MarkdownPreview
@@ -41,7 +27,7 @@ This gem gives you instant markdown preview for any textarea you want, anywhere 
     end
     ```
    
-6. Add the `markdown_preview` class to any textareas you want to be previewable, and you're good to go!
+4. Add the `markdown_preview` class to any textareas you want to be previewable, and you're good to go!
 
     ```html
     <textarea class="markdown_preview" id="my_awesome_textarea"></textarea>
