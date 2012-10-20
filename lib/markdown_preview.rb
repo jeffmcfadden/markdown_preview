@@ -9,7 +9,6 @@ module MarkdownPreview
     raise "ActionController is not available yet." unless defined?(ActionController)
     ActionController::Base.send(:include, MarkdownPreview::Base)
     ActionController::Base.send(:helper, MarkdownPreview::Helpers)
-    #MarkdownPreview.install_or_update_markdown_preview
     @intialized = true
   end
 
@@ -17,91 +16,6 @@ module MarkdownPreview
   #markdown string. i.e. add a custom tag or something.
   def self.preprocess_markdown( markdown )
     markdown
-  end
-
-  def self.install_or_update_markdown_preview
-    require 'fileutils'
-    orig = File.join(File.dirname(__FILE__), 'markdown_preview', 'assets', 'markdown_preview')
-    dest = File.join(Rails.root.to_s, 'public', 'javascripts', 'markdown_preview')
-    markdown_preview_js = File.join(dest, 'markdown_preview.js')
-
-    unless File.exists?(markdown_preview_js) && FileUtils.identical?(File.join(orig, 'markdown_preview.js'), markdown_preview_js)
-      if File.exists?(markdown_preview_js)
-        # upgrade
-        begin
-          puts "Removing directory #{dest}..."
-          FileUtils.rm_rf dest
-          puts "Creating directory #{dest}..."
-          FileUtils.mkdir_p dest
-          puts "Copying MarkdownPreview to #{dest}..."
-          FileUtils.cp_r "#{orig}/.", dest
-          puts "Successfully updated MarkdownPreview."
-        rescue
-          puts 'ERROR: Problem updating MarkdownPreview. Please manually copy '
-          puts orig
-          puts 'to'
-          puts dest
-        end
-      else
-        # install
-        begin
-          puts "Creating directory #{dest}..."
-          FileUtils.mkdir_p dest
-          puts "Copying MarkdownPreview to #{dest}..."
-          FileUtils.cp_r "#{orig}/.", dest
-          puts "Successfully installed MarkdownPreview."
-        rescue
-          puts "ERROR: Problem installing MarkdownPreview. Please manually copy "
-          puts orig
-          puts "to"
-          puts dest
-        end
-      end
-    end
-
-
-
-    orig = File.join(File.dirname(__FILE__), 'markdown_preview', 'assets', 'markdown_preview')
-    dest = File.join(Rails.root.to_s, 'public', 'stylesheets', 'markdown_preview')
-    markdown_preview_css = File.join(dest, 'markdown_preview.css')
-
-    unless File.exists?(markdown_preview_css) && FileUtils.identical?(File.join(orig, 'markdown_preview.css'), markdown_preview_css)
-      if File.exists?(markdown_preview_css)
-        # upgrade
-        begin
-          puts "Removing directory #{dest}..."
-          FileUtils.rm_rf dest
-          puts "Creating directory #{dest}..."
-          FileUtils.mkdir_p dest
-          puts "Copying MarkdownPreview to #{dest}..."
-          FileUtils.cp_r "#{orig}/.", dest
-          puts "Successfully updated MarkdownPreview."
-        rescue
-          puts 'ERROR: Problem updating MarkdownPreview. Please manually copy '
-          puts orig
-          puts 'to'
-          puts dest
-        end
-      else
-        # install
-        begin
-          puts "Creating directory #{dest}..."
-          FileUtils.mkdir_p dest
-          puts "Copying MarkdownPreview to #{dest}..."
-          FileUtils.cp_r "#{orig}/.", dest
-          puts "Successfully installed MarkdownPreview."
-        rescue
-          puts "ERROR: Problem installing MarkdownPreview. Please manually copy "
-          puts orig
-          puts "to"
-          puts dest
-        end
-      end
-    end
-    
-
-  
-  
   end
 
   module Base
