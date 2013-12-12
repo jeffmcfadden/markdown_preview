@@ -6,9 +6,9 @@ This gem gives you instant markdown preview for any textarea you want, anywhere 
 
 1. Add to your Gemfile:
    ```ruby
-    `gem 'markdown_preview'`
-    `gem 'rdiscount', '1.6.8' # Markdown Preview will fail with newer versions of RDiscount
-    ```
+    gem 'markdown_preview'
+    gem 'rdiscount', '1.6.8' # Markdown Preview will fail with newer versions of RDiscount
+   ```
 
 2. Run the Rake task:
 
